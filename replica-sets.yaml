@@ -7,18 +7,18 @@ metadata:
 spec: 
   selector:
     matchExpressions:
-      - { key: app, operator: In , values: [replica-set-app, new-app]} 
+        - { key: app, operator: In , values: [replica-set-app]} 
   
-    replicas: 4
-    template:
-      metadata:
-        labels:
-          name: nginxapp
-          app: replica-set-app
-      spec:
-        containers:
-          - name: nginxapp
-            image: nginx
-            ports:
-                - containerPort: 80
-                  protocol: TCP
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        name: nginxapp
+        app: replica-set-app
+    spec:
+      containers:
+        - name: nginxapp
+          image: nginx
+          ports:
+              - containerPort: 80
+                protocol: TCP
