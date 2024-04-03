@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-set
+  labels: 
+    app: deployment-app
+spec: 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchExpressions:
+        - { key: app, operator: In , values: [deployment-app]} 
+  
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        name: nginxapp
+        app: deployment-app
+    spec:
+      containers:
+        - name: nginxapp
+          image: nginx
+          ports:
+              - containerPort: 80
+                protocol: TCP
