@@ -11,13 +11,13 @@ spec:
   
   template:
     metadata:
-      labels:
         name: cloudwatch-app
-        app: daemon-app
+        labels: 
+           app: daemon-app
     spec:
       containers:
         - name: cloudwatch-app
-          image: amazon/cloudwatch-agent:latest
+          image: amazon/cloudwatch-agent
           ports:
               - containerPort: 80
                 protocol: TCP
