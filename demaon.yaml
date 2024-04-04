@@ -6,8 +6,8 @@ metadata:
     app: daemon-app
 spec: 
   selector:
-    matchExpressions:
-        - { key: app, operator: In , values: [daemon-app]} 
+    matchLabels: 
+       app: daemon-app
   
   template:
     metadata:
