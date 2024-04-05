@@ -14,7 +14,7 @@ spec:
       metadata:
         labels:
           name: mdb
-          app: dconfigapp
+          app: configapp
       spec:
         containers:
           - name: mysql
